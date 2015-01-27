@@ -4,13 +4,54 @@
     <div class="list-group text-center">
 
       <div class="list-group-item list-group-item-home media">
-        <div class="media-body">
-            <h3 class="media-heading">Submit an issue</h3>
-            <p>Please submit any issue you'll find, <a href="https://github.com/mcasimir/mobile-angular-ui/issues" target='blank' id='#home-report'>reporting</a> your user agent string:<br>
-            </p>
-<pre>{{userAgent}}</pre>
 
+        <div class="media-body dash-center">
 
+          <div class="iot-dash">
+            <i class="fa fa-lightbulb-o"></i>
+            <div>
+              <span class="label">LUMINOSIDADE</span>
+              <span class="value" id="content-lightbulb">200</span>
+            </div>
+          </div>
+          <div class="iot-dash">
+            <i class="fa fa-circle-thin"></i>
+            <div>
+              <span class="label">BOTÃO 1</span>
+              <span class="value" id="content-button-1">OFF</span>
+            </div>
+          </div>
+          <div class="iot-dash">
+            <i class="fa fa-circle"></i>
+            <div>
+              <span class="label">BOTÃO 2</span>
+              <span class="value" id="content-button-2">ON</span>
+            </div>
+          </div>
+          <div class="iot-dash">
+            <i class="fa fa-cog"></i>
+            <div>
+              <span class="label">STATUS</span>
+              <span class="value" id="content-button-3">OFFLINE</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="media-body dash-center dash-controllers">
+          <span class="label">LED RGB</span>
+          <div>
+            <label for="led_r">Vermelho:</label>
+            <input type="range" name="led_r" value="0" min="0" max="255" step="1"/>
+          </div>
+          <div>
+            <label for="led_g">Verde:</label>
+            <input type="range" name="led_g" value="0" min="0" max="255" step="1"/>
+          </div>
+          <div>
+            <label for="led_b">Azul:</label>
+            <input type="range" name="led_b" value="0" min="0" max="255" step="1"/>
+          </div>
         </div>
       </div>
 

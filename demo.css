@@ -164,3 +164,79 @@ input.scrollable-header {
   margin-top: -7px;
   height: 34px;
 }
+
+label {
+  display: inline-block !important;
+  width: 15%;
+  min-width: 70px;
+  text-align: right;
+  margin-right: 10px;
+  line-height: 30px;
+}
+
+input[type=range] {
+  display: inline-block !important;
+  width: 64% !important;
+}
+
+.dash-center {
+  margin: 0 auto;
+}
+.iot-dash {
+  font-size: 40px;
+  color: gray;
+  border: 1px solid #336699;
+  border-radius: 20px;
+  min-width: 150px;
+  width: 100%;
+  display: inline-block;
+}
+
+.iot-dash i {
+  text-align: center;
+  width: 45px;
+  height: 45px;
+  overflow: hidden;
+  float: left;
+  padding-left: 5px;
+  padding-top: 5px;
+  color: #3366cc;
+}
+
+.iot-dash div {
+  float: right;
+  text-align: right;
+  height: 50px;
+  padding: 8px;
+  margin-right: 10px;
+}
+
+.label {
+  font-size: 9pt;
+  color: darkgray;
+  padding: 0px;
+  margin: 0px;
+  text-align: right;
+  display: block;
+}
+
+.iot-dash .value {
+  font-size: 22px;
+  color: black;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+}
+
+.dash-controllers {
+  border: 1px solid #336699;
+  border-radius: 20px;
+  padding: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.dash-controllers .label {
+  margin-top: 6px;
+  margin-right: 10px;
+}
