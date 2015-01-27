@@ -43,6 +43,7 @@
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/js \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/libs \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/package.json \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/plugins \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/sbc-example.js \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/sidebar.html \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/style \
@@ -187,6 +188,9 @@
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/img/marca-tef-vivo.png \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/js/index.js \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/libs/sbc.angular.js \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/plugins/com.megster.cordova.bluetoothserial \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/plugins/com.megster.cordova.bluetoothserial/www \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/plugins/com.megster.cordova.bluetoothserial/www/bluetoothSerial.js \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/style/action_menu \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/style/action_menu.css \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/style/buttons \

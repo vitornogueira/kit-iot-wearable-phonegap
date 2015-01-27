@@ -14,4 +14,17 @@
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/res/drawable-xhdpi/icon.png \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/res/values/strings.xml \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/res/xml/config.xml \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/res/drawable/icon.png \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/res/drawable-hdpi/icon.png \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/res/drawable-land-hdpi/screen.png \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/res/drawable-land-ldpi/screen.png \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/res/drawable-land-mdpi/screen.png \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/res/drawable-land-xhdpi/screen.png \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/res/drawable-ldpi/icon.png \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/res/drawable-mdpi/icon.png \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/res/drawable-port-hdpi/screen.png \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/res/drawable-port-ldpi/screen.png \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/res/drawable-port-mdpi/screen.png \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/res/drawable-port-xhdpi/screen.png \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/res/drawable-xhdpi/icon.png \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/AndroidManifest.xml \
