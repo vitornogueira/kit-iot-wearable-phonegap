@@ -1,0 +1,3 @@
+# view AndroidManifest.xml #generated:6
+-keep class com.telefonicabeta.kitv3.wearable.KitWearableV3 { <init>(...); }
+
