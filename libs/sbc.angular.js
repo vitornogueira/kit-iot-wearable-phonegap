@@ -8,7 +8,7 @@ app.value('apiURL', {
     DATA_SAVE: this.BASE + ':8002'
 });
 
-app.value('apiHeaders', );
+app.value('apiHeaders', '');
 
 
 app.factory('sbcApi', ['$http', '$q', '$timeout', '$rootScope', 'apiURL', 'apiHeaders', function($http, $q, $timeout, $rootScope, apiURL, apiHeaders) {
