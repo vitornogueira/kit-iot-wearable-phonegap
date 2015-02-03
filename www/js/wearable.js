@@ -13,12 +13,14 @@ var utils = {
 
 var wearable = {
 
+    acelerometerPosition: 0,
+
     initialize: function() {
 
         bluetoothSerial.subscribe("\n", wearable.onDeviceMessage, wearable.generateFailureFunction("Subscribe Failed"));
         bluetoothSerial.list(wearable.onDeviceList, wearable.generateFailureFunction("List Failed"));
         app.updateNode("content-status", "INICIALIZANDO");
-
+        wearable.acelerometerPosition = 0;
     },
 
     updateBuzzer: function (value) {
@@ -65,6 +67,20 @@ var wearable = {
 
       app.updateNode("content-lightbulb",luminosityValue);
 
+    },
+
+    onAcelerometer: function (value) {
+
+      if (wearable.acelerometerPosition == 0) {
+        app.updateNode("content-acelerometer-x",value);
+      } else if (wearable.acelerometerPosition == 1) {
+          app.updateNode("content-acelerometer-y",value);
+      } else if (wearable.acelerometerPosition == 2) {
+        app.updateNode("content-acelerometer-z",value);
+      }
+      wearable.acelerometerPosition++;
+      if (wearable.acelerometerPosition > 2)
+        wearable.acelerometerPosition = 0;
     },
 
     onButtonOne: function (bool) {
@@ -115,6 +131,11 @@ var wearable = {
           console.log(msgValue);
           wearable.onButtonTwo(msgValue);
           break;
+        case "#AC":
+          console.log("Acelerometro:")
+          console.log(msgValue);
+          wearable.onAcelerometer(msgValue);
+          break;
         default:
           console.log("Genérico:")
           console.log(msg);
@@ -152,6 +173,7 @@ var wearable = {
 
     onWearableConnectSuccess: function () {
         console.log('onWearableConnectSuccess!');
+        wearable.acelerometerPosition = 0;
         app.updateNode("content-status", "CONECTADO");
         bluetoothSerial.subscribe("\n", wearable.onDeviceMessage, wearable.generateFailureFunction("Subscribe Failed"));
         bluetoothSerial.write("#LR0000\n", function () {
@@ -164,6 +186,27 @@ var wearable = {
               app.updateValue("content-led-g",0);
               app.updateValue("content-led-b",0);
 
+              bluetoothSerial.write("#AC0000\n", function () {
+                bluetoothSerial.write("#AC0001\n", function () {
+                  bluetoothSerial.write("#AC0002\n", function () {
+
+                    bluetoothSerial.write("#LI0000\n", {}, wearable.onWearableWriteFailure);
+
+                  }, wearable.onWearableWriteFailure);
+                }, wearable.onWearableWriteFailure);
+              }, wearable.onWearableWriteFailure);
+
+              setInterval(function(){
+                  bluetoothSerial.write("#AC0000\n", function () {
+                    bluetoothSerial.write("#AC0001\n", function () {
+                      bluetoothSerial.write("#AC0002\n", function () {
+
+                      }, wearable.onWearableWriteFailure);
+                    }, wearable.onWearableWriteFailure);
+                  }, wearable.onWearableWriteFailure);
+              }, 2000);
+
+
             }, wearable.onWearableWriteFailure);
 
           }, wearable.onWearableWriteFailure);
@@ -172,7 +215,7 @@ var wearable = {
 
         setInterval(function(){
             bluetoothSerial.write("#LI0000\n", {}, wearable.onWearableWriteFailure);
-        }, 2000);
+        }, 3000);
     },
 
 };
