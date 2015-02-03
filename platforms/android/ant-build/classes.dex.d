@@ -1,4 +1,5 @@
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/classes.dex : \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/classes/com/jamiestarke/webviewdebug/WebViewDebug.class \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/classes/com/megster/cordova/BluetoothSerial$1.class \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/classes/com/megster/cordova/BluetoothSerial.class \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/ant-build/classes/com/megster/cordova/BluetoothSerialService$AcceptThread.class \

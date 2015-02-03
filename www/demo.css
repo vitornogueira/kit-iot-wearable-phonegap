@@ -240,3 +240,13 @@ input[type=range] {
   margin-top: 6px;
   margin-right: 10px;
 }
+
+.dash-buzzer {
+  margin-top: 6px;
+}
+
+#content-buzzer {
+  width: 100%;
+  font-size: 26px;
+  margin-bottom: 10px;
+}

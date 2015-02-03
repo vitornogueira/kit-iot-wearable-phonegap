@@ -28,21 +28,74 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
+
+    updateClass: function (elementId, newClassName) {
+
+      try {
+
+        document.getElementById(elementId).className = newClassName;
+
+      } catch (e) {
+        console.log("Erro atualizando " + elementId + ":");
+        console.log(e);
+      }
+    },
+
+    updateNode: function (elementId, htmlValue) {
+
+      try {
+
+        document.getElementById(elementId).innerHTML = htmlValue;
+
+      } catch (e) {
+        console.log("Erro atualizando " + elementId + ":");
+        console.log(e);
+      }
+    },
+
+    updateValue: function (elementId, newValue) {
+
+      try {
+
+        document.getElementById(elementId).value = newValue;
+
+      } catch (e) {
+        console.log("Erro atualizando " + elementId + ":");
+        console.log(e);
+      }
+    },
+
+    onLedChangeR: function (value) {
+
+        wearable.updateLedR(value);
+
+    },
+    onLedChangeG: function (value) {
+
+        wearable.updateLedG(value);
+
+    },
+    onLedChangeB: function (value) {
+
+        wearable.updateLedB(value);
+
+    },
+
+    onBuzzerChange: function (value) {
+
+        wearable.updateBuzzer(value);
+
+    },
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        wearable.initialize();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
     }

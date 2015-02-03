@@ -187,6 +187,7 @@
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/img/ico-ffOS-60x60.png \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/img/marca-tef-vivo.png \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/js/index.js \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/js/wearable.js \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/libs/sbc.angular.js \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/plugins/com.megster.cordova.bluetoothserial \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/plugins/com.megster.cordova.bluetoothserial/www \
@@ -213,6 +214,7 @@
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/style/status.css \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/style/switches \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/style/switches.css \
+/Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/style/util.css \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/style/action_menu/header_actions.html \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/style/action_menu/images \
 /Users/wupsbr/Sites/telefonica/kit-w/platforms/android/assets/www/style/action_menu/index.html \
