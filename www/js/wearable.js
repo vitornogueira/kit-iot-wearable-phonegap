@@ -69,6 +69,12 @@ var wearable = {
 
     },
 
+    onTemperature: function (temperatureValue) {
+
+      app.updateNode("content-temperature",temperatureValue);
+
+    },
+
     onAcelerometer: function (value) {
 
       if (wearable.acelerometerPosition == 0) {
@@ -112,8 +118,8 @@ var wearable = {
     },
 
     onDeviceMessage: function (msg) {
-      msgCommand = msg.substr(0,3).trim();
-      msgValue   = msg.substr(3,msg.length-3).trim();
+      msgCommand = msg.substr(0,3).trim().replace(/[^\w\s\d.]/gi, '');
+      msgValue   = msg.substr(3,msg.length-3).trim().replace(/[^\w\s\d.]/gi, '');
 
       switch (msg.substr(0,3)) {
         case "#LI":
@@ -135,6 +141,11 @@ var wearable = {
           console.log("Acelerometro:")
           console.log(msgValue);
           wearable.onAcelerometer(msgValue);
+          break;
+        case "#TE":
+          console.log("Temperatura:")
+          console.log(msgValue);
+          wearable.onTemperature(msgValue);
           break;
         default:
           console.log("Genérico:")
@@ -191,6 +202,7 @@ var wearable = {
                   bluetoothSerial.write("#AC0002\n", function () {
 
                     bluetoothSerial.write("#LI0000\n", {}, wearable.onWearableWriteFailure);
+                    bluetoothSerial.write("#TE0000\n", {}, wearable.onWearableWriteFailure);
 
                   }, wearable.onWearableWriteFailure);
                 }, wearable.onWearableWriteFailure);
@@ -215,6 +227,10 @@ var wearable = {
 
         setInterval(function(){
             bluetoothSerial.write("#LI0000\n", {}, wearable.onWearableWriteFailure);
+        }, 3000);
+
+        setInterval(function(){
+            bluetoothSerial.write("#TE0000\n", {}, wearable.onWearableWriteFailure);
         }, 3000);
     },
 

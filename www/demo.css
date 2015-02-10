@@ -1,3 +1,7 @@
+body, .app {
+  background-color: white;
+}
+
 #lightbulb {
   font-size: 100px;
   display: block;
@@ -181,6 +185,7 @@ input[type=range] {
 
 .dash-center {
   margin: 0 auto;
+  margin-bottom: 6px;
 }
 .iot-dash {
   font-size: 40px;
@@ -194,12 +199,13 @@ input[type=range] {
 
 .iot-dash i {
   text-align: center;
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
   overflow: hidden;
   float: left;
   padding-left: 5px;
   padding-top: 5px;
+  padding-bottom: 0px;
   color: #3366cc;
 }
 
@@ -228,6 +234,18 @@ input[type=range] {
   display: block;
 }
 
+.iot-dash-right {
+  width: 49%;
+  float: right;
+  min-width: 40px;
+}
+
+.iot-dash-left {
+  width: 49%;
+  float: left;
+  min-width: 40px;
+}
+
 .dash-controllers {
   border: 1px solid #336699;
   border-radius: 20px;
@@ -239,10 +257,6 @@ input[type=range] {
 .dash-controllers .label {
   margin-top: 6px;
   margin-right: 10px;
-}
-
-.dash-buzzer {
-  margin-top: 6px;
 }
 
 #content-buzzer {
