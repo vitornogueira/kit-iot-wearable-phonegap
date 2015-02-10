@@ -118,8 +118,8 @@ var wearable = {
     },
 
     onDeviceMessage: function (msg) {
-      msgCommand = msg.substr(0,3).trim().replace(/[^\w\s\d.]/gi, '');
-      msgValue   = msg.substr(3,msg.length-3).trim().replace(/[^\w\s\d.]/gi, '');
+      msgCommand = msg.substr(0,3).trim().replace(/[^\w\s\d.-]/gi, '');
+      msgValue   = msg.substr(3,msg.length-3).trim().replace(/[^\w\s\d.-]/gi, '');
 
       switch (msg.substr(0,3)) {
         case "#LI":
@@ -182,6 +182,18 @@ var wearable = {
         return func;
     },
 
+    onWearableConnectFailure: function(message) {
+
+        app.updateNode("content-status", "RECONECTANDO");
+
+        setTimeout(function(){
+
+          bluetoothSerial.list(wearable.onDeviceList, wearable.generateFailureFunction("List Failed"));
+
+        }, 2000);
+
+
+    },
     onWearableConnectSuccess: function () {
         console.log('onWearableConnectSuccess!');
         wearable.acelerometerPosition = 0;
