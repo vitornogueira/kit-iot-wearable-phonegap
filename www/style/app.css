@@ -1,0 +1,81 @@
+.app {
+  background-color: #fff;
+}
+
+.scrollable-content {
+  padding: 12px;
+}
+
+.loading-spinner {
+  position: absolute;
+  font-size: 50px;
+  left: 50%;
+  top: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
+}
+
+.logo {
+  margin-top: -7px;
+  height: 34px;
+}
+
+.iot-dash {
+  color: gray;
+  border: 1px solid #336699;
+  display: inline-block;
+  border-radius: 15px;
+  min-width: 150px;
+  padding: 5px;
+  margin: 6px 0;
+  width: 100%;
+}
+
+.iot-dash i {
+  font-size: 40px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin: 4px 6px 0 4px;
+  color: #3366cc;
+}
+
+.iot-dash p {
+  margin: 0;
+}
+
+.iot-dash-content {
+  padding: 12px;
+}
+
+.iot-dash .value {
+  font-size: 22px;
+  color: black;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.iot-dash-right {
+  width: 49%;
+  float: right;
+  min-width: 40px;
+}
+
+.iot-dash-left {
+  width: 49%;
+  float: left;
+  min-width: 40px;
+}
+
+.label {
+  font-size: 11px;
+  color: darkgray;
+  padding: 0;
+}
+
+.fw {
+  width: 100%;
+}
+

@@ -1,0 +1,95 @@
+<div class="scrollable">
+  <div class="scrollable-content">
+
+    <div class="iot-dash iot-dash-left">
+      <i class="fa fa-lightbulb-o"></i>
+
+      <p>
+        <span class="label">luminosidade</span>
+        <span class="value" id="content-lightbulb">-</span>
+      </p>
+    </div>
+
+    <div class="iot-dash iot-dash-right">
+      <i class="fa fa-sun-o"></i>
+
+      <p>
+        <span class="label">temperatura</span>
+        <span class="value" id="content-temperature">-</span>
+      </p>
+    </div>
+
+    <div class="iot-dash">
+      <i class="fa fa-cube"></i>
+
+      <p>
+        <span class="label">acelerômetro</span>
+        <span class="value" id="content-accelerometer">
+          X: <span id="content-accelerometer-x">-</span>,
+          Y: <span id="content-accelerometer-y">-</span>,
+          Z: <span id="content-accelerometer-z">-</span>
+        </span>
+      </p>
+    </div>
+
+    <div class="iot-dash iot-dash-left">
+      <i class="fa fa-circle-thin" id="content-button-1-icon"></i>
+
+      <p>
+        <span class="label">botão 1</span>
+        <span class="value" id="content-button-1">OFF</span>
+      </p>
+    </div>
+
+    <div class="iot-dash iot-dash-right">
+      <i class="fa fa-circle-thin" id="content-button-2-icon"></i>
+
+      <p>
+        <span class="label">botão 2</span>
+        <span class="value" id="content-button-2">OFF</span>
+      </p>
+    </div>
+
+    <div class="iot-dash iot-dash-content">
+      <span class="label">melodias</span>
+
+      <p>
+        <select id="content-buzzer" class="fw" onchange="app.onBuzzerChange(this.value)">
+          <option value="0000">selecione a melodia</option>
+          <option value="1234">Melodia Natalina</option>
+          <option value="6789">Melodia Mario</option>
+          <option value="0456">Melodia Marcha Imperial</option>
+        </select>
+      </p>
+    </div>
+
+    <div class="iot-dash iot-dash-content">
+      <span class="label" onclick="app.onLedChangeR(0);app.onLedChangeG(0);app.onLedChangeB(0);document.getElementById('content-led-r').value = 0;document.getElementById('content-led-g').value = 0;document.getElementById('content-led-b').value = 0;">led rgb</span>
+
+      <p>
+        <label class="label" for="led_r" onclick="app.onLedChangeR(250);app.onLedChangeG(0);app.onLedChangeB(0);document.getElementById('content-led-r').value = 0; document.getElementById('content-led-g').value = 0;document.getElementById('content-led-b').value = 0;">Vermelho:</label>
+        <input type="range" name="led_r" id="content-led-r" oninput="app.onLedChangeR(this.value)" value="0" min="0" max="250" step="1"/>
+      </p>
+
+      <p>
+        <label class="label" for="led_g" onclick="app.onLedChangeR(0);app.onLedChangeG(250);app.onLedChangeB(0);document.getElementById('content-led-r').value = 0;document.getElementById('content-led-g').value = 250;document.getElementById('content-led-b').value = 0;">Verde:</label>
+        <input type="range" name="led_g" id="content-led-g" oninput="app.onLedChangeG(this.value)" value="0" min="0" max="250" step="1"/>
+      </p>
+
+      <p>
+        <label class="label" for="led_b" onclick="app.onLedChangeR(0);app.onLedChangeG(0);app.onLedChangeB(250);document.getElementById('content-led-r').value = 0;document.getElementById('content-led-g').value = 0;document.getElementById('content-led-b').value = 250;">Azul:</label>
+        <input type="range" name="led_b" id="content-led-b" oninput="app.onLedChangeB(this.value)" value="0" min="0" max="250" step="1"/>
+      </p>
+    </div>
+
+    <div class="iot-dash">
+      <i class="fa fa-cog"></i>
+
+      <p>
+        <span class="label">status</span>
+        <span class="value" id="content-status">-</span>
+      </p>
+    </div>
+
+  </div>
+</div>
