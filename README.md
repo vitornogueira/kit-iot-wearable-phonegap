@@ -10,6 +10,11 @@ This is the **HTML5** / **CSS** / **JS** app for the [Kit IoT Wearable](http://i
 $ npm install phonegap -g
 ```
 
+### Install bluetoothserial cordova plugin
+```
+$ cordova plugin add com.megster.cordova.bluetoothserial
+```
+
 
 ### After cloning the project add the plataform(s) you want to run.
 
