@@ -2,13 +2,19 @@
 <widget id="com.telefonicabeta.kitv3.wearable"
   version="0.0.1" xmlns="http://www.w3.org/ns/widgets"
   xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Kit Wearable</name>
-    <description>
-      Connect to the Kit IoT Wearable - Telefonica VIVO
-    </description>
-    <author email="iot@telefonicabeta.com" href="http://iot.telefonicabeta.com">
-        IoT Telefonica VIVO
-    </author>
-    <content src="index.html" />
-    <access origin="*" />
+  <name>Kit Wearable</name>
+
+  <description>
+    Connect to the Kit IoT Wearable - Telefonica VIVO
+  </description>
+
+  <author email="iot@telefonicabeta.com" href="http://iot.telefonicabeta.com">
+      IoT Telefonica VIVO
+  </author>
+
+  <content src="index.html" />
+
+  <access origin="*" />
+
+  <icon src="www/img/icon.png" />
 </widget>

@@ -3,7 +3,6 @@ var app = angular.module('KitIoTWearable', [
   'mobile-angular-ui'
 ]);
 
-
 //Route config
 app.config(function ($routeProvider) {
   $routeProvider.when('/', {
@@ -11,7 +10,6 @@ app.config(function ($routeProvider) {
     controller: 'DashboardController'
   });
 });
-
 
 //App controllers
 app.controller('DashboardController', function ($rootScope, $scope) {
