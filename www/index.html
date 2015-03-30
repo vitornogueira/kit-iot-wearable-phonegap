@@ -5,10 +5,7 @@
     <title>Kit IoT Wearable - Telefonica | VIVO</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
-
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
 
     <script src="js/components/angular/angular.min.js"></script>
     <script src="js/components/angular-route/angular-route.min.js"></script>
@@ -21,25 +18,21 @@
   </head>
 
   <body ng-app="KitIoTWearable">
-    <div class="app">
-      <!-- Navbars -->
-      <header class="navbar navbar-app navbar-absolute-top">
-        <nav class="navbar-brand navbar-brand-center" ui-yield-to="title">
-          <img src="img/telefonica-vivo-logo.png" class="logo">
-        </nav>
-      </header>
+    <header class="navbar navbar-app navbar-absolute-top">
+      <nav class="navbar-brand navbar-brand-center">
+        <img src="img/telefonica-vivo-logo.png" class="logo">
+      </nav>
+    </header>
 
-      <!-- App Body -->
-      <section class="app-body" ng-class="{loading: loading}">
-        <div ng-show="loading" class="app-content-loading">
-          <i class="fa fa-spinner fa-spin loading-spinner"></i>
-        </div>
+    <section class="app-body" ng-class="{ loading: loading }">
+      <div ng-show="loading" class="app-content-loading">
+        <i class="fa fa-spinner fa-spin loading-spinner"></i>
+      </div>
 
-        <article class="app-content">
-          <ng-view></ng-view>
-        </article>
-      </section>
-    </div>
+      <article class="app-content">
+        <ng-view></ng-view>
+      </article>
+    </section>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/wearable.js"></script>

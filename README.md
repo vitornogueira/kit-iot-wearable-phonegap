@@ -2,7 +2,7 @@
 This is the **HTML5** / **CSS** / **JS** app for the [Kit IoT Wearable](http://iot.telefonicabeta.com/kit-iot-wearable) from Telefonica VIVO.
 
 
-## How to run
+## How to run the app
 
 ### You hsould have [phonegap](https://www.npmjs.com/package/phonegap) instaled using NodeJS.
 
