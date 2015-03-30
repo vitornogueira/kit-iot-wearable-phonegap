@@ -1,5 +1,8 @@
 .DS_Store
 
+# Platforms
+platforms/
+
 # Cordova - Android
 platforms/android/assets/www
 platforms/android/bin/
