@@ -25,4 +25,32 @@ To crete the **iOS** app.
 $ phonegap platform add ios
 ```
 
+### To run in the simulator or in your device
 
+#### Run in Android
+
+To run in Android make sure you have [ant](http://ant.apache.org/) installed in you computer.
+
+```
+$ brew install ant
+```
+
+Then run it
+
+```
+$ phonegap run android
+```
+
+#### Run in iOS
+
+To run in iOS make sure you have the [ios-deploy](https://www.npmjs.com/package/ios-deploy) NodeJS module installed.
+
+```
+$ npm install -g ios-deploy
+```
+
+Then run it.
+
+```
+$ phonegap run ios
+```

@@ -2,9 +2,9 @@
 <widget id="com.telefonicabeta.kitv3.wearable"
   version="0.0.1" xmlns="http://www.w3.org/ns/widgets"
   xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>KitWearableV3</name>
+    <name>Kit Wearable</name>
     <description>
-      App to control the Kit IoT Wearable form Telefonica VIVO
+      Connect to the Kit IoT Wearable - Telefonica VIVO
     </description>
     <author email="iot@telefonicabeta.com" href="http://iot.telefonicabeta.com">
         IoT Telefonica VIVO
