@@ -1,13 +1,16 @@
 var app = {};
 
+//Init the app
 app.initialize = function () {
   this.bindEvents();
 };
 
+//Bind events to the document
 app.bindEvents = function () {
   document.addEventListener('deviceready', this.onDeviceReady, false);
 };
 
+//Update class name of an element
 app.updateClass = function (elementId, newClassName) {
   try {
     document.getElementById(elementId).className = newClassName;
@@ -18,6 +21,7 @@ app.updateClass = function (elementId, newClassName) {
   }
 };
 
+//Update html inside node
 app.updateNode = function (elementId, htmlValue) {
   try {
     document.getElementById(elementId).innerHTML = htmlValue;
@@ -28,6 +32,7 @@ app.updateNode = function (elementId, htmlValue) {
   }
 };
 
+//Update element with value
 app.updateValue = function (elementId, newValue) {
   try {
     document.getElementById(elementId).value = newValue;
@@ -38,6 +43,7 @@ app.updateValue = function (elementId, newValue) {
   }
 };
 
+//On device ready
 app.onDeviceReady = function () {
   wearable.initialize();
 };

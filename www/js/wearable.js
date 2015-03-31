@@ -10,17 +10,17 @@ wearable.initialize = function () {
 
 //On buzzer
 wearable.updateBuzzer = function (value) {
-  bluetoothSerial.write("#PM" + value + "\n", {}, wearable.onWearableWriteFailure);
+  bluetoothSerial.write("#PM" + value + "\n", function () {}, wearable.onWearableWriteFailure);
 };
 
 //Turn led off
 wearable.ledOFF = function () {
-  bluetoothSerial.write("#LL0000\n", {}, wearable.onWearableWriteFailure);
+  bluetoothSerial.write("#LL0000\n", function () {}, wearable.onWearableWriteFailure);
 };
 
 //On led
 wearable.updateLed = function (led, value) {
-  bluetoothSerial.write("#" + led + value + "\n", {}, wearable.onWearableWriteFailure);
+  bluetoothSerial.write("#" + led + value + "\n", function () {}, wearable.onWearableWriteFailure);
 };
 
 //On luminosity
@@ -160,9 +160,9 @@ wearable.onWearableConnectSuccess = function () {
     bluetoothSerial.write('#LI0000\n', function () {
       bluetoothSerial.write('#TE0000\n', function () {}, wearable.onWearableWriteFailure);
     }, wearable.onWearableWriteFailure);
-  }, 1000);
+  }, 2000);
 
   setInterval(function () {
     bluetoothSerial.write('#AC0003\n', function () {}, wearable.onWearableWriteFailure);
-  }, 500);
+  }, 1000);
 };
