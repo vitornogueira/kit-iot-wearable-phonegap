@@ -1,10 +1,10 @@
-var app = angular.module('KitIoTWearable', [
+var angular = angular.module('KitIoTWearable', [
   'ngRoute',
   'mobile-angular-ui'
 ]);
 
 //Route config
-app.config(function ($routeProvider) {
+angular.config(function ($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: 'dashboard.html',
     controller: 'DashboardController'
@@ -12,9 +12,7 @@ app.config(function ($routeProvider) {
 });
 
 //App controllers
-app.controller('DashboardController', function ($rootScope, $scope) {
-  $scope.userAgent = navigator.userAgent;
-
+angular.controller('DashboardController', function ($rootScope, $scope) {
   $rootScope.$on('$routeChangeStart', function () {
     $rootScope.loading = true;
   });
@@ -22,4 +20,40 @@ app.controller('DashboardController', function ($rootScope, $scope) {
   $rootScope.$on('$routeChangeSuccess', function () {
     $rootScope.loading = false;
   });
+
+  //Set sliders to 0
+  $scope.resetSlider = function () {
+    $scope.red = 0;
+    $scope.green = 0;
+    $scope.blue = 0;
+  };
+
+  $scope.resetSlider();
+
+  //Turn the led off
+  $scope.ledOFF = function () {
+    wearable.ledOFF();
+    $scope.resetSlider();
+  };
+
+  //On melody change
+  $scope.melodyChange = function () {
+    wearable.updateBuzzer($scope.melody);
+  };
+
+  //On slider change
+  $scope.ledChange = function (color) {
+    var val = $scope[color];
+
+    if (color === 'red') {
+      wearable.updateLed('LR', val);
+    }
+    if (color === 'green') {
+      wearable.updateLed('LG', val);
+    }
+    if (color === 'blue') {
+      wearable.updateLed('LB', val);
+    }
+  };
 });
+

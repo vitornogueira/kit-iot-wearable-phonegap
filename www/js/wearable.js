@@ -2,9 +2,10 @@ var wearable = {};
 
 //Init
 wearable.initialize = function () {
-  bluetoothSerial.subscribe("\n", wearable.onDeviceMessage, wearable.generateFailureFunction("Subscribe Failed"));
+  bluetoothSerial.subscribe('\n', wearable.onDeviceMessage, wearable.generateFailureFunction("Subscribe Failed"));
   bluetoothSerial.list(wearable.onDeviceList, wearable.generateFailureFunction("List Failed"));
-  app.updateNode("content-status", "INICIALIZANDO");
+
+  app.updateNode("content-status", "INICIALIZANDO...");
 };
 
 //On buzzer
@@ -12,41 +13,37 @@ wearable.updateBuzzer = function (value) {
   bluetoothSerial.write("#PM" + value + "\n", {}, wearable.onWearableWriteFailure);
 };
 
+//Turn led off
+wearable.ledOFF = function () {
+  bluetoothSerial.write("#LL0000\n", {}, wearable.onWearableWriteFailure);
+};
+
 //On led
 wearable.updateLed = function (led, value) {
   bluetoothSerial.write("#" + led + value + "\n", {}, wearable.onWearableWriteFailure);
 };
 
-//On led red
-wearable.updateLedR = function (value) {
-  wearable.updateLed("LR", value);
-};
-
-//On led green
-wearable.updateLedG = function (value) {
-  wearable.updateLed("LG", value);
-};
-
-//On led blue
-wearable.updateLedB = function (value) {
-  wearable.updateLed("LB", value);
-};
-
 //On luminosity
-wearable.onLuminosityChange = function (luminosityValue) {
-  app.updateNode("content-lightbulb", luminosityValue);
+wearable.onLuminosityChange = function (value) {
+  app.updateNode("content-lightbulb", value);
 };
 
 //On tempeperature
-wearable.onTemperature = function (temperatureValue) {
-  app.updateNode("content-temperature", temperatureValue);
+wearable.onTemperature = function (value) {
+  app.updateNode("content-temperature", value);
 };
 
 //On accelerometer
-wearable.onAccelerometer = function (value) {
-  app.updateNode("content-accelerometer-x", value.x);
-  app.updateNode("content-accelerometer-y", value.y);
-  app.updateNode("content-accelerometer-z", value.z);
+wearable.onAccelerometer = function (axis, value) {
+  if (axis === "AX") {
+    app.updateNode("content-accelerometer-x", value);
+  }
+  if (axis === "AY") {
+    app.updateNode("content-accelerometer-y", value);
+  }
+  if (axis === 'AZ') {
+    app.updateNode("content-accelerometer-z", value);
+  }
 };
 
 //On button 1 click
@@ -86,24 +83,26 @@ wearable.onDeviceMessage = function (msg) {
   msgCommand = msg.substr(0, 3).trim().replace(/[^\w\s\d.-]/gi, '');
   msgValue = msg.substr(3, msg.length-3).trim().replace(/[^\w\s\d.-]/gi, '');
 
-  switch (msg.substr(0,3)) {
-    case "#LI":
+  switch (msgCommand) {
+    case "LI":
       wearable.onLuminosityChange(msgValue);
       break;
 
-    case "#B1":
+    case "B1":
       wearable.onButtonOne(msgValue);
       break;
 
-    case "#B2":
+    case "B2":
       wearable.onButtonTwo(msgValue);
       break;
 
-    case "#AC":
-      wearable.onAcelerometer(msgValue);
+    case "AX":
+    case "AY":
+    case "AZ":
+      wearable.onAccelerometer(msgCommand, msgValue);
       break;
 
-    case "#TE":
+    case "TE":
       wearable.onTemperature(msgValue);
       break;
 
@@ -114,12 +113,13 @@ wearable.onDeviceMessage = function (msg) {
 
 //On device list bluetooth
 wearable.onDeviceList = function (devices) {
-  devices.forEach(function (device) {
-    regex = /wV3/i;
+  var regex = /wV3/i;
 
+  devices.forEach(function (device) {
     if (regex.test(device.name)) {
-      app.updateNode("content-status", "CONECTANDO");
-      bluetoothSerial.connect(device.address, wearable.onWearableConnectSuccess, wearable.onWearableConnectFailure);
+      app.updateNode("content-status", "CONECTANDO...");
+
+      bluetoothSerial.connect(device.id, wearable.onWearableConnectSuccess, wearable.onWearableConnectFailure);
     }
   });
 };
@@ -140,9 +140,10 @@ wearable.generateFailureFunction = function (message) {
 
 //On connect failure
 wearable.onWearableConnectFailure = function (message) {
-  app.updateNode("content-status", "RECONECTANDO");
+  app.updateNode("content-status", "BUSCANDO...");
+  app.updateClass("content-status", "value");
 
-  setTimeout(function(){
+  setTimeout(function () {
     bluetoothSerial.list(wearable.onDeviceList, wearable.generateFailureFunction("List Failed"));
   }, 2000);
 };
@@ -150,30 +151,18 @@ wearable.onWearableConnectFailure = function (message) {
 //On wearable connect
 wearable.onWearableConnectSuccess = function () {
   app.updateNode("content-status", "CONECTADO");
-  bluetoothSerial.subscribe("\n", wearable.onDeviceMessage, wearable.generateFailureFunction("Subscribe Failed"));
+  app.updateClass("content-status", "value connected");
 
-  //Set the led off
-  bluetoothSerial.write("#LL0000\n", function () {
-    app.updateValue("content-led-r", 0);
-    app.updateValue("content-led-g", 0);
-    app.updateValue("content-led-b", 0);
-
-    //Get the accelerometr value
-    bluetoothSerial.write("#AC0003\n", {}, wearable.onWearableWriteFailure);
-  }, wearable.onWearableWriteFailure);
-
-  //Interval to get the accelerometer
-  setInterval(function () {
-    bluetoothSerial.write("#AC0003\n", {}, wearable.onWearableWriteFailure);
-  }, 1000);
+  bluetoothSerial.subscribe('\n', wearable.onDeviceMessage, wearable.generateFailureFunction("Subscribe Failed"));
 
   //Interval to get the luminosity
   setInterval(function () {
-    bluetoothSerial.write("#LI0000\n", {}, wearable.onWearableWriteFailure);
-  }, 3000);
+    bluetoothSerial.write('#LI0000\n', function () {
+      bluetoothSerial.write('#TE0000\n', function () {}, wearable.onWearableWriteFailure);
+    }, wearable.onWearableWriteFailure);
+  }, 1000);
 
-  //Interval to get the temperature
   setInterval(function () {
-    bluetoothSerial.write("#TE0000\n", {}, wearable.onWearableWriteFailure);
-  }, 3000);
+    bluetoothSerial.write('#AC0003\n', function () {}, wearable.onWearableWriteFailure);
+  }, 500);
 };

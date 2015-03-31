@@ -75,3 +75,10 @@
   width: 100%;
 }
 
+.connected {
+  color: #00CB00 !important;
+}
+
+select {
+  padding: 6px;
+}
