@@ -4,7 +4,7 @@ This is the **HTML5** / **CSS** / **JS** app for the [Kit IoT Wearable](http://i
 
 ## How to run the app
 
-### You hsould have [phonegap](https://www.npmjs.com/package/phonegap) instaled using NodeJS.
+### You should have [phonegap](https://www.npmjs.com/package/phonegap) instaled using NodeJS.
 
 ```
 $ npm install phonegap -g
